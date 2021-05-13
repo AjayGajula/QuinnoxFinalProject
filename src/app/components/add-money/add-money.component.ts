@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { Router } from '@angular/router';
 import { CommonServiceService } from 'src/app/services/common-service.service';
 
 
 import { NgForm } from '@angular/forms';
 import { FormBuilder, Validators, ControlContainer, FormGroup, FormControl } from '@angular/forms';
+=======
+>>>>>>> 5fcac76c3ce0402feb66129c81d4a068a5599f3c
 
 @Component({
   selector: 'app-add-money',
@@ -12,6 +15,7 @@ import { FormBuilder, Validators, ControlContainer, FormGroup, FormControl } fro
   styleUrls: ['./add-money.component.css']
 })
 export class AddMoneyComponent implements OnInit {
+<<<<<<< HEAD
   title: string;
   amount: number;
   cardHolder: string;
@@ -32,5 +36,12 @@ export class AddMoneyComponent implements OnInit {
   addMoney() {
     alert(this.amount)
   }
+=======
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+>>>>>>> 5fcac76c3ce0402feb66129c81d4a068a5599f3c
 
 }

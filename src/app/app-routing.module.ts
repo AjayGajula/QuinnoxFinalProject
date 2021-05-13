@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookingComponent } from './components/booking/booking.component';
-import { AadharverificationComponent } from './components/aadharverification/aadharverification.component';
 import { AboutComponent } from './components/about/about.component';
 import { AddMoneyComponent } from './components/add-money/add-money.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
 import { MyBookingComponent } from './components/my-booking/my-booking.component';
-import { OtpverificationComponent } from './components/otpverification/otpverification.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { RegisterComponent } from './components/register/register.component';
-import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { RoomAvailabeComponent } from './components/room-available/room-available.component';
 
+import { AadharverificationComponent } from './components/aadharverification/aadharverification.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { OtpverificationComponent } from './components/otpverification/otpverification.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+
 const routes: Routes = [
+  { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
