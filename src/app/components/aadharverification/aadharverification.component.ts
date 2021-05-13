@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../commonClasses/user';
 
 @Component({
   selector: 'app-aadharverification',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aadharverification.component.css']
 })
 export class AadharverificationComponent implements OnInit {
-
+  user=new User();
   constructor() { }
 
   ngOnInit(): void {

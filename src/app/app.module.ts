@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +18,10 @@ import { AadharverificationComponent } from './components/aadharverification/aad
 import { OtpverificationComponent } from './components/otpverification/otpverification.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { AboutComponent } from './components/about/about.component';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from './material.module';
+import { routingComponents, AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,15 +39,20 @@ import { AboutComponent } from './components/about/about.component';
     AadharverificationComponent,
     OtpverificationComponent,
     ResetpasswordComponent,
-    AboutComponent
+    AboutComponent,
+    routingComponents
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    MaterialModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
+  exports: [AppRoutingModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

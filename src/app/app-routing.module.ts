@@ -22,4 +22,11 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-export const routingComponents = [RegisterComponent, LoginComponent];
+export const routingComponents = [
+  LoginComponent,
+  RegisterComponent,
+  HomeComponent,
+  ResetpasswordComponent,
+  AadharverificationComponent,
+  OtpverificationComponent
+];

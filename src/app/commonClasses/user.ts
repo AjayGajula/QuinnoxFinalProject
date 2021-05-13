@@ -1,11 +1,12 @@
 export class User {
-  id: number;
-  emailId: string;
-  firstName: string;
-  lastName: string;
-  mobileNumber: string;
-  password: string;
-  aadhar: string;
+  id: string='';
+  email: string='';
+  firstName: string='';
+  lastName: string='';
+  mobileNum: string='';
+  password: string='';
+  aadhar: string='';
+  wallet:number=0;
 
   constructor() {}
 }
