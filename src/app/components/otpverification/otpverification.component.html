@@ -1,1 +1,25 @@
 <p>otpverification works!</p>
+<div id="wrapper">
+  <div id="dialog">
+    <h4>Please enter the 6-digit verification code we sent via SMS:</h4>
+    <form #myform="ngForm" id="form">
+      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" />
+      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" />
+      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" />
+      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" />
+      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" />
+      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" />
+
+      <button class="btn btn-primary btn-embossed">Verify</button>
+    </form>
+
+    <div>
+      <small>Didn't receive the code?</small> <br />
+      <a href="#"><small>Resend code again</small> </a><br />
+    </div>
+    <img
+      src="http://jira.moovooz.com/secure/attachment/10424/VmVyaWZpY2F0aW9uLnN2Zw=="
+      alt="test"
+    />
+  </div>
+</div>
