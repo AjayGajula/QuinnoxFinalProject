@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
+import { Router } from '@angular/router';
+import { CommonServiceService } from 'src/app/services/common-service.service';
+
+
+import { NgForm } from '@angular/forms';
+import { FormBuilder, Validators, ControlContainer, FormGroup, FormControl } from '@angular/forms';
+=======
+>>>>>>> 5fcac76c3ce0402feb66129c81d4a068a5599f3c
 
 @Component({
   selector: 'app-add-money',
@@ -6,10 +15,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-money.component.css']
 })
 export class AddMoneyComponent implements OnInit {
+<<<<<<< HEAD
+  title: string;
+  amount: number;
+  cardHolder: string;
+  cardNumber: number;
+  cardExpiry: string;
+  cardCVV: number;
+  constructor() { 
+    this.title = "Add money to wallet"
+    this.amount=0;
+    this.cardHolder='';
+    this.cardNumber=0;
+    this.cardExpiry='';
+    this.cardCVV=0;
+  }
+
+  ngOnInit(): void {
+  }
+  addMoney() {
+    alert(this.amount)
+  }
+=======
 
   constructor() { }
 
   ngOnInit(): void {
   }
+>>>>>>> 5fcac76c3ce0402feb66129c81d4a068a5599f3c
 
 }

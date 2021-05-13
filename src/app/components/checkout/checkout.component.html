@@ -1,1 +1,40 @@
-<p>checkout works!</p>
+<div class="card">
+    <div class="card-header">Confirm Booking</div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <tr>
+                <td>Name:</td>
+                <td> {{name}}</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>{{Email}}</td>
+            </tr>
+            <tr>
+                <td>Phone no.:</td>
+                <td>+123458845156</td>
+            </tr>
+            <tr>
+                <td>No. of Rooms:</td>
+                <td>{{noOfRoom}}</td>
+            </tr>
+            <tr>
+                <td>No. of Guests:</td>
+                <td>{{noOfGuest}}</td>
+            </tr>
+            <tr>
+                <td>Total amount</td>
+                <td>{{totalAmount}}</td>
+            </tr>
+
+        </table>
+        <div class="row">
+            <div class="col-6">
+                <button class="btn btn-success btn-lg btn-block" (click)="completeBooking()">Pay</button>
+            </div>
+            <div class=" col-6">
+                <button class="btn btn-danger btn-lg btn-block" (click)="cancelBooking()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

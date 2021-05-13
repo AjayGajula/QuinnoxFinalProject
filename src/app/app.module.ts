@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddMoneyComponent } from './components/add-money/add-money.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
@@ -13,7 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MyBookingComponent } from './components/my-booking/my-booking.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
-import { RoomAvailableComponent } from './components/room-available/room-available.component';
+import { RoomAvailabeComponent } from './components/room-available/room-available.component';
 import { AadharverificationComponent } from './components/aadharverification/aadharverification.component';
 import { OtpverificationComponent } from './components/otpverification/otpverification.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
@@ -27,15 +26,15 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent,
     AddMoneyComponent,
-    BookingComponent,
+    AddMoneyComponent,
     CheckoutComponent,
     LoginComponent,
     MyBookingComponent,
+    BookingComponent,
     ProfileComponent,
     RegisterComponent,
-    RoomAvailableComponent,
+    RoomAvailabeComponent,
     AadharverificationComponent,
     OtpverificationComponent,
     ResetpasswordComponent,
