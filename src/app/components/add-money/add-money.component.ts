@@ -14,11 +14,6 @@ export class AddMoneyComponent implements OnInit {
   cardCVV: number;
   constructor() { 
     this.title = "Add money to wallet"
-    this.amount=0;
-    this.cardHolder='';
-    this.cardNumber=0;
-    this.cardExpiry='';
-    this.cardCVV=0;
   }
 
   ngOnInit(): void {
