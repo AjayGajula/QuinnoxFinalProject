@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-header">Available Rooms</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Room Type</th>
+                    <th>Capacity</th>
+                    <th>Cost per day</th>
+                    <th>No. rooms available</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{data.roomType}}</td>
+                    <td>{{data.capacity}}</td>
+                    <td>{{data.cost}}</td>
+                    <td>{{data.cost}}</td>
+                    <td><i class="material-icons" (click)="addToCart()">&#xe148;</i></td>
+
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-success btn-lg btn-block" (click)="proceedBooking()">Proceed</button>
+
+    </div>
+</div>

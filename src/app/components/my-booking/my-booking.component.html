@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header">My Bookings</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Booking Id</th>
+                    <th>Name</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>{{data.userId}}</td>
+                    <td>Doe</td>
+                    <td>Doe</td>
+                    <td>Doe</td>
+                    <td><i class="material-icons" (click)="cancelBooking()">&#xe5c9;</i></td>
+
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
