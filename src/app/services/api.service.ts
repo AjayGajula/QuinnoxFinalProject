@@ -29,6 +29,9 @@ export class ApiService {
     return { headers: new HttpHeaders({ 'Content-Type': contentType }), responseType: 'text' };
   }
 
+  addMoney(data:any){
+    return this.http.put(`${this.baseUrl}/updateWallet/${data.id}`, data, this.createHeader('application/json')).toPromise()
+  }
   // --------------Admin Resources------------
   authAdmin(data:any){
     return this.http.post(`${this.baseUrl}/authAdmin`, data, this.createHeader('application/json')).toPromise()
