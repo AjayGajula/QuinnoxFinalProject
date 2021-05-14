@@ -22,6 +22,7 @@ import { MaterialModule } from './material.module';
 import { routingComponents, AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminOpsComponent } from './components/admin-ops/admin-ops.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { AdminOpsComponent } from './components/admin-ops/admin-ops.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   exports: [AppRoutingModule],
   bootstrap: [AppComponent]
 })

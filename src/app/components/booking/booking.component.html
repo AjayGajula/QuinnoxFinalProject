@@ -1,7 +1,7 @@
-<div class="card">
+<div class="card bookingFormCard">
     <div class="card-header">{{ title }}</div>
-    <div class="card-body">
-        <form #bookingForm="ngForm" (ngSubmit)="checkAvailable(bookingForm)">
+    <div class="card-body ">
+        <form #bookingForm="ngForm" class="bookingForm" (ngSubmit)="checkAvailable(bookingForm)">
             <div class="form-group">
                 <label for="room">Type of Room</label>
                 <select class="form-control" name="room" id="room" [(ngModel)]="Booking.room" required>
@@ -9,24 +9,17 @@
           <option *ngFor="let pow of roomType" [value]="pow">{{ pow }}</option>
         </select>
             </div>
-            <div class="row">
-                <div class="col-6">
-                    <div class="form-group">
-                        <label for="fromDate">From:</label>
-                        <input type="date" name="fromDate" class="form-control" [(ngModel)]="Booking.fromDate" #fromDate="ngModel" />
-                    </div>
-                </div>
-
-                <div class="col-6">
-                    <div class="form-group">
-                        <label for="toDate">To:</label>
-                        <input type="date" name="toDate" class="form-control" [(ngModel)]="Booking.toDate" #toDate="ngModel" />
-                    </div>
-                </div>
+            <div class="form-group">
+                <label for="fromDate">From:</label>
+                <input type="date" name="fromDate" data-date-format="yyyy/mm/dd" class="form-control" [(ngModel)]="Booking.fromDate" #fromDate="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="toDate">To:</label>
+                <input type="date" name="toDate" class="form-control" [(ngModel)]="Booking.toDate" #toDate="ngModel" />
             </div>
 
 
-            <button class="btn btn-success btn-lg btn-block" type="submit">
+            <button class="btn btn-success btn-md btn-block" type="submit">
         Check Availability
       </button>
         </form>
