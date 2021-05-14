@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-money',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-money.component.css']
 })
 export class AddMoneyComponent implements OnInit {
-
-  constructor() { }
+  title: string;
+  amount: number;
+  cardHolder: string;
+  cardNumber: number;
+  cardExpiry: string;
+  cardCVV: number;
+  constructor() { 
+    this.title = "Add money to wallet"
+  }
 
   ngOnInit(): void {
+  }
+  addMoney(addMoneyForm:NgForm) {
+    alert(addMoneyForm.value.amount);
   }
 
 }
