@@ -59,7 +59,8 @@ export class AdminOpsComponent implements OnInit {
       return fromDate > currDate;
     }
   }
-  roomPost =// {
+  roomPost =
+  // {
     //   id: '301',
     //   roomType: 'Suite',
     //   cost: 2000,
