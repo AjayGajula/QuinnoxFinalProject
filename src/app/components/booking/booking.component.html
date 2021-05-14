@@ -1,7 +1,7 @@
 <div class="card bookingFormCard">
     <div class="card-header">{{ title }}</div>
     <div class="card-body ">
-        <form #bookingForm="ngForm" class="bookingForm" (ngSubmit)="checkAvailable(bookingForm)">
+        <form #bookingForm="ngForm" class="bookingForm" (ngSubmit)="checkAvailable()">
             <div class="form-group">
                 <label for="room">Type of Room</label>
                 <select class="form-control" name="room" id="room" [(ngModel)]="Booking.room" required>

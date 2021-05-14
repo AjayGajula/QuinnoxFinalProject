@@ -3,7 +3,7 @@ export class Booking {
     rId:any;
     fromDate: any;
     toDate: any;
-    room: string='';
+    room: string;
     bookedDays:any;
     costPerDay:any;
     constructor() { }

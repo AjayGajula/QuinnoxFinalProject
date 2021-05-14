@@ -23,7 +23,7 @@ export class BookingComponent implements OnInit {
   ngOnInit(): void {
     this.title = "Book your stay"
   }
-  checkAvailable(bookingForm : NgForm) {
+  checkAvailable() {
     this.service.storeBooking(this.Booking);
     this.router.navigate(['/roomCheck'])
   }

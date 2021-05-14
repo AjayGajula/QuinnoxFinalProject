@@ -17,7 +17,6 @@ export class MyBookingComponent implements OnInit {
     this.cancelConfirm=false;
     this.service.checkBooking().subscribe(
       (data) => {
-        console.log(data)
         this.data=data;
       },
       (error) => {

@@ -17,7 +17,6 @@ export class CheckoutComponent implements OnInit {
   name: any;
   mobileNum: any;
   totalAmount: any;
-
   user = new User();
   data={}
   constructor(private router: Router,private commonService: CommonServiceService,private apiService :ApiService) { }
@@ -37,7 +36,6 @@ export class CheckoutComponent implements OnInit {
   }
   completeBooking(){
     if(this.commonService.user.wallet > this.totalAmount){
-      
     this.apiService.createBooking(this.bookingData)
     alert('Booking Successfull with id '+this.bookingData.id);
     this.router.navigate(['/myBooking'])
