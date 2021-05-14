@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router"
+import { Router } from "@angular/router"
 import { ApiService } from 'src/app/services/api.service';
 import { CommonServiceService } from 'src/app/services/common-service.service'
 
@@ -9,36 +9,30 @@ import { CommonServiceService } from 'src/app/services/common-service.service'
   styleUrls: ['./room-available.component.css']
 })
 export class RoomAvailabeComponent implements OnInit {
-  data:any;
-  formData:any;
-  constructor(private service: ApiService,private commonService: CommonServiceService, private router: Router) {}
+  data: any;
+  formData: any;
+  // id =new Date().getTime();
+  constructor(private service: ApiService, private commonService: CommonServiceService, private router: Router) { }
   ngOnInit(): void {
-    this.data={
-      roomType:'',
-      capacity:'',
-      cost:''
-    }
-    this.service.checkAvailability().subscribe(//pass userId
+    ////data from form
+    this.commonService.$shareBookingDetails.subscribe(
+      formFromBooking => this.formData = formFromBooking
+    )
+    ////data from api
+    this.service.checkAvailability().subscribe(
       (data) => {
-        this.data=data[0];
+        this.data = data.filter((item: any) =>
+          item.bookings[0].bookingStatus === false 
+        )
       },
       (error) => {
-        console.log('exception occured');
+        console.log('exception occured' + error);
       }
     );
-    ///////////////////////////////////
-    this.commonService.$shareBookingDetails.subscribe(
-        data => this.formData=data
-      )
-
-
-
   }
-  addToCart(){
-    alert('clicked')
-  }
-  proceedBooking(){
-    this.router.navigate(['/checkout'])
-    
+  addToCart() { }
+  bookNow(id: string) {
+    alert('clicked ' + id)
+    // this.router.navigate(['/checkout'])
   }
 }
