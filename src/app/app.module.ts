@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { routingComponents, AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminOpsComponent } from './components/admin-ops/admin-ops.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     OtpverificationComponent,
     ResetpasswordComponent,
     AboutComponent,
-    routingComponents
+    routingComponents,
+    AdminOpsComponent
   ],
   imports: [
     BrowserModule,

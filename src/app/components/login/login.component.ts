@@ -30,9 +30,7 @@ export class LoginComponent implements OnInit {
         else if(this.user.password === data.password){
           this.loginStatus.loggedIn=true;
           this.msg = "";
-          this.commonService.user=data
-          console.log(this.commonService.user);
-          
+          this.commonService.user=data;          
           this.router.navigate(['/']);
         }
         else{
@@ -43,12 +41,11 @@ export class LoginComponent implements OnInit {
     );
   }
   loginAdmin(){
-    this.admin.id=this.admin.email;
-    console.log(this.admin);
+    this.admin.id=this.admin.email.split('@')[0];
     
     this.service.authAdmin(this.admin).then(
       (res:any) => {
-         if(JSON.parse(res) === true){
+        if(JSON.parse(res) === true){
           this.loginStatus.adminLoggedIn=true;
           this.msgA = ''
           this.router.navigate(['/']);
