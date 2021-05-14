@@ -13,18 +13,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>jj</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td><i class="material-icons" (click)="cancelBooking()">&#xe5c9;</i></td>
-
-                </tr>
-
+                <div *ngIf="userBookings.length !=0; then show; else hide"></div>
+                <ng-template #show>
+                    <tr *ngFor="let booking of userBookings">
+                        <td>{{ booking.id }}</td>
+                        <td>{{ data.firstName + " " + data.lastName }}</td>
+                        <td>{{ booking.bookedFrom }}</td>
+                        <td>{{ booking.bookedTo }}</td>
+                        <td>{{ booking.costPerDay * booking.bookedDays }}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" (click)="cancelBooking(booking.id)">
+                Cancel
+              </button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template #hide>
+                    <tr>
+                        <th colspan="6" style="text-align: center">You have no bookings. <a routerLink="/booking">Book Now</a></th>
+                    </tr>
+                </ng-template>
             </tbody>
         </table>
-
     </div>
 </div>
