@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/commonClasses/user';
 import { ApiService } from 'src/app/services/api.service';
 import { AppComponent } from '../../app.component';
+import { CommonServiceService } from '../../services/common-service.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   admin = new User();
   msg = '';
   msgA='';
-  constructor(private service: ApiService, private router: Router, private loginStatus: AppComponent) {}
+  constructor(private service: ApiService, private router: Router, private loginStatus: AppComponent, private commonService: CommonServiceService) {}
 
   ngOnInit(): void {}
 
@@ -29,6 +30,9 @@ export class LoginComponent implements OnInit {
         else if(this.user.password === data.password){
           this.loginStatus.loggedIn=true;
           this.msg = "";
+          this.commonService.user=data
+          console.log(this.commonService.user);
+          
           this.router.navigate(['/']);
         }
         else{

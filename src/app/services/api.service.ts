@@ -24,6 +24,9 @@ export class ApiService {
   createUser(data:any){
     return this.http.post(`${this.baseUrl}/addUser`, data, this.createHeader('application/json')).toPromise()
   }
+  resetPassword(data:any){
+    return this.http.put(`${this.baseUrl}/updatePassword/${data.id}`, data, this.createHeader('application/json')).toPromise()
+  }
   private createHeader(contentType: string): any {
     return { headers: new HttpHeaders({ 'Content-Type': contentType }), responseType: 'text' };
   }
