@@ -49,28 +49,6 @@ export class AdminOpsComponent implements OnInit {
     );
     this.service.getBookings().subscribe(res => (this.totalBookings = res));
   }
-  //   data={
-  //       "id": "305",
-  //       "roomType": "Super Delux",
-  //       "cost": 1000,
-  //       "capacity": 2,
-  //       "bookings": [{
-  //           "bookingStatus": true,
-  //           "bookingFrom": "2021-05-15",
-  //           "bookingTo": "2021-05-15",
-  //           "uId":"virat@gmail.com"
-  //       }]
-  // }
-  data = {
-    id: 'b3',
-    uId: 'jhony@gmail.com',
-    rId: '302',
-    currentStatus: false,
-    bookedDays: 2,
-    bookedFrom: '2021-05-14',
-    bookedTo: '2021-05-15',
-    costPerDay: 800
-  };
   currentDate(dateStrFrom, dateStrTo, status) {
     let fromDate = this.datePipe.transform(dateStrFrom, 'yyyy-MM-dd');
     let toDate = this.datePipe.transform(dateStrTo, 'yyyy-MM-dd');
@@ -80,14 +58,5 @@ export class AdminOpsComponent implements OnInit {
     } else {
       return fromDate > currDate;
     }
-  }
-  posting() {
-    // this.service.getBookings().subscribe(
-    //   data=>{
-
-    //   }
-    // )
-    this.service.addBooking(this.data).then(res => console.log(res));
-    // this.service.delRoomById('b5');
   }
 }
