@@ -2,25 +2,140 @@
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active" id="nav-current-day-tab" data-toggle="tab" href="#nav-current-day" role="tab" aria-controls="nav-current-day" aria-selected="true">Current Day Bookings</a>
       <a class="nav-item nav-link" id="nav-upcoming-tab" data-toggle="tab" href="#nav-upcoming" role="tab" aria-controls="nav-upcoming" aria-selected="false">Upcoming Bookings</a>
+      <a class="nav-item nav-link" id="nav-history-tab" data-toggle="tab" href="#nav-history" role="tab" aria-controls="nav-history" aria-selected="false">Booking History</a>
       <a class="nav-item nav-link" id="nav-earnings-tab" data-toggle="tab" href="#nav-earnings" role="tab" aria-controls="nav-earnings" aria-selected="false">Total Earnings</a>
-      <a class="nav-item nav-link" id="nav-add-room-tab" data-toggle="tab" href="#nav-add-room" role="tab" aria-controls="nav-add-room" aria-selected="false">Add Room</a>
-      <a class="nav-item nav-link" id="nav-show-rooms-tab" data-toggle="tab" href="#nav-show-rooms" role="tab" aria-controls="nav-show-rooms" aria-selected="false">Show Rooms</a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-current-day" role="tabpanel" aria-labelledby="nav-current-day-tab">
         <button type="submit" (click)="posting()">Submit</button>
+        <div class="card">
+            <div class="card-header">Todays Active Bookings</div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Booking Id</th>
+                            <th>User email</th>
+                            <th>Room number</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let booking of currentDay">
+                            <td>{{booking.id}}</td>
+                            <td>{{booking.uId}}</td>
+                            <td>{{booking.rId}}</td>
+                            <td>{{booking.bookedFrom}}</td>
+                            <td>{{booking.bookedTo}}</td>
+                            <td>{{booking.costPerDay}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <th><i>Today Earnings RS -</i>{{totalCostToday}}</th>
+                    </tfoot>
+                </table>
+        
+            </div>
+        </div>
     </div>
     <div class="tab-pane fade" id="nav-upcoming" role="tabpanel" aria-labelledby="nav-upcoming-tab">
-        upcoming
+        <div class="card">
+            <div class="card-header">Upcoming Bookings</div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Booking Id</th>
+                            <th>User email</th>
+                            <th>Room number</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let booking of upcomingBookings">
+                            <td>{{booking.id}}</td>
+                            <td>{{booking.uId}}</td>
+                            <td>{{booking.rId}}</td>
+                            <td>{{booking.bookedFrom}}</td>
+                            <td>{{booking.bookedTo}}</td>
+                            <td>{{booking.costPerDay*booking.bookedDays}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+            </div>
+        </div>
     </div>
     <div class="tab-pane fade" id="nav-earnings" role="tabpanel" aria-labelledby="nav-earnings-tab">
-        earnings
+        <div class="card">
+            <div class="card-header">Upcoming Bookings</div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Booking Id</th>
+                            <th>User email</th>
+                            <th>Room number</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let booking of activeBookings">
+                            <td>{{booking.id}}</td>
+                            <td>{{booking.uId}}</td>
+                            <td>{{booking.rId}}</td>
+                            <td>{{booking.bookedFrom}}</td>
+                            <td>{{booking.bookedTo}}</td>
+                            <td>{{booking.costPerDay*booking.bookedDays}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <th><i>Today Earnings RS -</i>{{totalCostOverall}}</th>
+                    </tfoot>
+                </table>
+        
+            </div>
+        </div>
     </div>
-    <div class="tab-pane fade" id="nav-add-room" role="tabpanel" aria-labelledby="nav-add-room-tab">
-        add room
-    </div>
-    <div class="tab-pane fade" id="nav-show-rooms" role="tabpanel" aria-labelledby="nav-show-rooms-tab">
-        show rooms
+    <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
+        <div class="card">
+            <div class="card-header">Upcoming Bookings</div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Booking Id</th>
+                            <th>User email</th>
+                            <th>Room number</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Status</th>
+                            <th>Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let booking of totalBookings">
+                            <td>{{booking.id}}</td>
+                            <td>{{booking.uId}}</td>
+                            <td>{{booking.rId}}</td>
+                            <td>{{booking.bookedFrom}}</td>
+                            <td>{{booking.bookedTo}}</td>
+                            <td *ngIf="booking.currentStatus; then show; else hide"></td>
+                            <ng-template #show><td>Active</td></ng-template>
+                            <ng-template #hide><td>Cancelled</td></ng-template>
+                            <td>{{booking.costPerDay*booking.bookedDays}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+            </div>
+        </div>
     </div>
   </div>
