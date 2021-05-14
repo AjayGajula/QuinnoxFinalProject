@@ -1,8 +1,5 @@
-import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router"
-import { ApiService } from 'src/app/services/api.service';
-import { User } from '../../commonClasses/user';
+import { CommonServiceService } from '../../services/common-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,18 +7,9 @@ import { User } from '../../commonClasses/user';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  data= new User();
-  constructor(private service: ApiService, private router: Router) {}
+  constructor(private commonService:CommonServiceService) {}
+  data= this.commonService.user;
 
-  ngOnInit(): void {
-    this.service.getUser("james@gmail.com").subscribe(
-      (data) => {
-        this.data=data;
-      },
-      (error) => {
-        console.log('exception occured');
-      }
-    );
-  }
+  ngOnInit(): void {}
 
 }

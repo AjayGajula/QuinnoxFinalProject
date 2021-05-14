@@ -1,8 +1,10 @@
 export class Booking {
-    fromDate: string='';
-    toDate: string='';
-    noOfRoom: number=0;
-    noOfGuest: number=0;
+    id:any;
+    rId:any;
+    fromDate: any;
+    toDate: any;
     room: string='';
+    bookedDays:any;
+    costPerDay:any;
     constructor() { }
   }
