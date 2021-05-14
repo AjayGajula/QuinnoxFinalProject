@@ -14,7 +14,7 @@ export class MyBookingComponent implements OnInit {
     private service: ApiService,
     private commonService: CommonServiceService,
     private datePipe: DatePipe
-  ) {}
+  ) { }
   msg: string = '';
   data: any;
   room = {
@@ -34,7 +34,7 @@ export class MyBookingComponent implements OnInit {
         let fromDate = this.datePipe.transform(item.bookedFrom, 'yyyy-MM-dd');
         let currDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
         return (
-          (item.uId === this.commonService.user.id) && (fromDate > currDate) && (item.currentStatus === true)
+          (item.uId === this.commonService.user.id) && (fromDate >= currDate) && (item.currentStatus === true)
         );
       });
     });
@@ -45,7 +45,7 @@ export class MyBookingComponent implements OnInit {
       this.service.getBookingById(bookingId).subscribe(res => {
         res.currentStatus = false;
         this.service.cancelUpdateBooking(res);
-        this.room.id=res.rId;
+        this.room.id = res.rId;
         this.service.cancelUpdateRoom(this.room);
         this.ngOnInit();
       });

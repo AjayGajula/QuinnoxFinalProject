@@ -52,6 +52,10 @@ export class ApiService {
   getBookingById(id: String): Observable<any> {
     return this.http.get(`${this.baseUrl}/findAllBookings/${id}`);
   }
+  // update wallet
+  updateWallet(data:any){
+    return this.http.put(`${this.baseUrl}/updateWallet/${data.id}`, data, this.createHeader('application/json')).toPromise()
+  }
   /////////RITESH
   baseURL='http://ec2-3-108-66-146.ap-south-1.compute.amazonaws.com:8080/';
 
@@ -60,29 +64,11 @@ export class ApiService {
       this.baseURL + 'findAllRooms'
     );
   }
-  public bookRoom(booking: Booking): Observable<any> {
-    return this.http.post<any>(
-      this.baseURL+'addBooking ',
-      booking
-    );
-  }
-  public getWalletAmount(id:any): Observable<any> { 
-    return this.http.get<any>(
-      this.baseURL + 'findAllUsers/'+id
-    );
-  }
   public getBookings(): Observable<any> { 
     return this.http.get<any>(
       this.baseURL + 'findAllBookings'
     );
   }
-  public checkBooking(): Observable<any> { //pass user id
-    return this.http.get<any>(
-      this.baseURL + 'findAllBookings/{id}'
-    );
-  }
-
-
   // extras
   public createRoom(data) {
     return this.http.post(`${this.baseUrl}/addRoom`, data, this.createHeader('application/json')).toPromise()

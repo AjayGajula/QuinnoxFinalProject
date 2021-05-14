@@ -5,6 +5,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th>Booking Id</th>
+                    <th>Room No.</th>
                     <th>Name</th>
                     <th>From</th>
                     <th>To</th>
@@ -17,20 +18,21 @@
                 <ng-template #show>
                     <tr *ngFor="let booking of userBookings">
                         <td>{{ booking.id }}</td>
+                        <td>{{ booking.rId }}</td>
                         <td>{{ data.firstName + " " + data.lastName }}</td>
                         <td>{{ booking.bookedFrom }}</td>
                         <td>{{ booking.bookedTo }}</td>
                         <td>{{ booking.costPerDay * booking.bookedDays }}</td>
                         <td>
                             <button class="btn btn-danger btn-sm" (click)="cancelBooking(booking.id)">
-                Cancel
-              </button>
+                                  Cancel
+                                </button>
                         </td>
                     </tr>
                 </ng-template>
                 <ng-template #hide>
                     <tr>
-                        <th colspan="6" style="text-align: center">You have no bookings. <a routerLink="/booking">Book Now</a></th>
+                        <th colspan="7" style="text-align: center">You have no bookings. <a routerLink="/booking">Book Now</a></th>
                     </tr>
                 </ng-template>
             </tbody>

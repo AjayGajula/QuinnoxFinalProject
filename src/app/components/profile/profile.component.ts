@@ -8,8 +8,10 @@ import { CommonServiceService } from '../../services/common-service.service';
 })
 export class ProfileComponent implements OnInit {
   constructor(private commonService:CommonServiceService) {}
-  data= this.commonService.user;
+  data: any;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.data=this.commonService.user;
+  }
 
 }

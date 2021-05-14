@@ -18,7 +18,20 @@ export class CheckoutComponent implements OnInit {
   mobileNum: any;
   totalAmount: any;
   user = new User();
-  data={}
+  room = {
+    id: '101',
+    bookings: [
+      {
+        bookingStatus: true,
+        bookingFrom:null,
+        bookingTo:null
+      }
+    ]
+  };
+  walletData = {
+    id:null,
+    wallet:0
+  }
   constructor(private router: Router,private commonService: CommonServiceService,private apiService :ApiService) { }
 
   ngOnInit(): void {
@@ -37,6 +50,13 @@ export class CheckoutComponent implements OnInit {
   completeBooking(){
     if(this.commonService.user.wallet > this.totalAmount){
     this.apiService.createBooking(this.bookingData)
+    this.room.id=this.commonService.booking.rId
+    this.room.bookings[0].bookingFrom=this.commonService.booking.fromDate;
+    this.room.bookings[0].bookingTo=this.commonService.booking.toDate;
+    this.apiService.cancelUpdateRoom(this.room);
+    this.walletData.id=this.commonService.user.email;
+    this.walletData.wallet=this.commonService.user.wallet - this.totalAmount;
+    this.apiService.updateWallet(this.walletData);
     alert('Booking Successfull with id '+this.bookingData.id);
     this.router.navigate(['/myBooking'])
     }
