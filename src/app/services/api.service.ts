@@ -39,8 +39,16 @@ export class ApiService {
   addBooking(data:any){
     return this.http.post(`${this.baseUrl}/addBooking`, data, this.createHeader('application/json')).toPromise()
   }
-  
-
+  // cancel room
+  cancelUpdateRoom(data:any){
+    return this.http.put(`${this.baseUrl}/updateRoom/${data.id}`, data, this.createHeader('application/json')).toPromise()
+  }
+  cancelUpdateBooking(data:any){//must recieve all fields
+    return this.http.put(`${this.baseUrl}/updateBookings/${data.id}`, data, this.createHeader('application/json')).toPromise()
+  }
+  getBookingById(id: String): Observable<any> {
+    return this.http.get(`${this.baseUrl}/findAllBookings/${id}`);
+  }
   /////////RITESH
   baseURL='http://ec2-3-108-66-146.ap-south-1.compute.amazonaws.com:8080/';
 
@@ -78,5 +86,8 @@ export class ApiService {
   }
   delRoomById(id: String){
     return this.http.delete(`${this.baseUrl}/deleteRoom/${id}`,  this.createHeader('application/json')).toPromise();
+  }
+  delBookById(id: String){
+    return this.http.delete(`${this.baseUrl}/deleteBooking/${id}`,  this.createHeader('application/json')).toPromise();
   }
 }

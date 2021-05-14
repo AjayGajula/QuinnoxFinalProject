@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,11 @@ export class AppComponent {
   title = 'Hotel Management System';
   loggedIn=false;
   adminLoggedIn=false;//------------- must change
+  constructor(private router: Router){}
   ngOnInit(): void {}
   logout(){
     this.loggedIn=false;
     this.adminLoggedIn=false;
+    this.router.navigate(['/login']);
   }
 }
