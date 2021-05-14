@@ -4,6 +4,8 @@ import { DatePipe } from '@angular/common';
 
 import { ApiService } from 'src/app/services/api.service';
 import { CommonServiceService } from 'src/app/services/common-service.service'
+import { Booking } from 'src/app/commonClasses/booking';
+import { isTemplateSpan } from 'typescript';
 
 
 @Component({
@@ -14,28 +16,31 @@ import { CommonServiceService } from 'src/app/services/common-service.service'
 export class RoomAvailabeComponent implements OnInit {
   data: any;
   formData: any;
+  fromDataForm: any;
+  booking = new Booking();
+
   // id =new Date().getTime();
   // 
-  constructor(private service: ApiService, private commonService: CommonServiceService, private router: Router , public datepipe: DatePipe) { }
+  constructor(private service: ApiService, private commonService: CommonServiceService, private router: Router, public datepipe: DatePipe) { }
   ngOnInit(): void {
-    ////data from form
-    this.commonService.$shareBookingDetails.subscribe(
-      formFromBooking => {
-        this.formData = formFromBooking;
-        console.log(formFromBooking)
-        let latest_date =this.datepipe.transform(formFromBooking.fromDate, 'yyyy-MM-dd');
-        console.log(latest_date);
-        
-      }
-    )
-    ////data from api
+
+    let fromDataForm = this.datepipe.transform(this.commonService.booking.fromDate, 'dd/MM/yyyy');
+    let toDataForm = this.datepipe.transform(this.commonService.booking.toDate, 'dd/MM/yyyy');
+    console.log(fromDataForm)
+    console.log(toDataForm);
+    console.log(this.commonService.booking.room);
+
+
+    // ////data from api
     this.service.checkAvailability().subscribe(
       (data) => {
-        this.data = data.filter((item: any) =>{
-          item.bookings[0].bookingStatus === false
-        let latest_date =this.datepipe.transform(item.bookings[0].bookingFrom, 'yyyy-MM-dd');
-        console.log(latest_date);
-        }
+        this.data = data.filter(
+          (item: any) => {
+            if(item.bookings[0].bookingStatus === true){
+              return item;
+            }
+            return item.bookings[0].bookingStatus === false && item.roomType == this.commonService.booking.room
+          }
         )
       },
       (error) => {
@@ -43,7 +48,6 @@ export class RoomAvailabeComponent implements OnInit {
       }
     );
   }
-  addToCart() { }
   bookNow(id: string) {
     alert('clicked ' + id)
     // this.router.navigate(['/checkout'])

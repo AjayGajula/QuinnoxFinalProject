@@ -16,15 +16,15 @@ export class BookingComponent implements OnInit {
   Booking = new Booking();
 
   title: string='';
-  roomType = ['Deluxe', 'Super Deluxe',
-    'Super Deluxe AC', 'Suite'];
+  roomType = ['Delux', 'Super Delux',
+    'Super Delux AC', 'Suite'];
 
   constructor(private service: CommonServiceService, private router: Router) { }
   ngOnInit(): void {
     this.title = "Book your stay"
   }
   checkAvailable(bookingForm : NgForm) {
-    this.service.shareBooking(bookingForm.value)
+    this.service.storeBooking(this.Booking);
     this.router.navigate(['/roomCheck'])
   }
   

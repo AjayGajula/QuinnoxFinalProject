@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Booking } from '../commonClasses/booking';
-import { HttpClient } from '@angular/common/http';
-import { EventEmitter } from '@angular/core';
 import { User } from '../commonClasses/user';
 
 @Injectable({
@@ -11,10 +9,9 @@ import { User } from '../commonClasses/user';
 export class CommonServiceService {
 
   constructor() { }
-  
-  $shareBookingDetails = new EventEmitter();
-  shareBooking(booking:any){
-    this.$shareBookingDetails.emit(booking);
+  booking=new Booking();
+  storeBooking(bData:Booking){
+    this.booking=bData;
   }
   user=new User();
   storeUser(uData:User){
