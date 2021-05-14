@@ -116,9 +116,12 @@
         >Password & Confirm password must be same</small
       >
     </div>
-    <small class="text-danger">{{ msg }}</small><br>
+    <small class="text-danger">{{ msg }}</small
+    ><br />
     <button
-      [disabled]="Registerform.form.invalid || cpassword.value != password.value"
+      [disabled]="
+        Registerform.form.invalid || cpassword.value != password.value
+      "
       type="submit"
       class="btn btn-primary"
       name="create"
