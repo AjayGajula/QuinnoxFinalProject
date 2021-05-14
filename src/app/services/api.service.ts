@@ -12,9 +12,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   private baseUrl: string = environment.baseUrl;
   // public loggedIn=false;
-  authAdmin(data:any){
-    return this.http.post(`${this.baseUrl}/authAdmin`, data, this.createHeader('application/json')).toPromise()
-  }
+  
   getUser(id: String): Observable<any> {
     return this.http.get(`${this.baseUrl}/findAllUsers/${id}`);
   }
@@ -30,6 +28,16 @@ export class ApiService {
   private createHeader(contentType: string): any {
     return { headers: new HttpHeaders({ 'Content-Type': contentType }), responseType: 'text' };
   }
+
+  // --------------Admin Resources------------
+  authAdmin(data:any){
+    return this.http.post(`${this.baseUrl}/authAdmin`, data, this.createHeader('application/json')).toPromise()
+  }
+  addBooking(data:any){
+    return this.http.post(`${this.baseUrl}/addBooking`, data, this.createHeader('application/json')).toPromise()
+  }
+  
+
   /////////RITESH
   baseURL='http://ec2-3-108-66-146.ap-south-1.compute.amazonaws.com:8080/';
 

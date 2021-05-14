@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Hotel Management System';
   loggedIn=false;
-  adminLoggedIn=false;
+  adminLoggedIn=false;//------------- must change
   ngOnInit(): void {}
   logout(){
     this.loggedIn=false;
