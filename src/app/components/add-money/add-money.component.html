@@ -1,39 +1,106 @@
 <div class="card">
-    <div class="card-header">{{title}}</div>
-    <div class="card-body">
-        <form #addMoneyForm="ngForm" (ngSubmit)="addMoney()">
-            <div class="form-group">
-                <label for="amount">AMOUNT</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="amount" name="amount" placeholder="Enter amount in INR" required autofocus />
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="cardHolder">CARD HOLDER NAME</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="cardHolder" name="cardHolder" placeholder="Card Holder Name" required autofocus />
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="cardNumber">CARD NUMBER</label>
-                <div class="input-group">
-                    <input type="tel" class="form-control" min=16 max=16 [(ngModel)]="cardNumber" name="cardNumber" placeholder="Valid Card Number" required autofocus />
-                    <div class="input-group-append">
-                        <span class="input-group-text">
-                            <i class="material-icons">&#xe870;</i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
-                <input type="tel" class="form-control" [(ngModel)]="cardExpiry" name="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp" required />
-            </div>
-            <div class="form-group">
-                <label for="cardCVV">CVV CODE</label>
-                <input type="tel" class="form-control" [(ngModel)]="cardCVV" name="cardCVV" placeholder="CVV" required />
-            </div>
-            <button class="btn btn-success btn-lg btn-block" type="submit">Add Money</button>
-        </form>
-    </div>
+  <div class="card-header">{{ title }}</div>
+  <div class="card-body">
+    <form #addMoneyForm="ngForm" (ngSubmit)="addMoney(addMoneyForm)">
+      <div class="form-group">
+        <label for="amount">AMOUNT</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="amount"
+            name="amount"
+            placeholder="Enter amount in INR"
+            required
+            autofocus
+            #money="ngModel"
+            [class.is-invalid]="money.touched"
+          />
+        </div>
+        <small class="text-danger" *ngIf="money.touched"
+          >Amount is required field</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="cardHolder">CARD HOLDER NAME</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="cardHolder"
+            name="cardHolder"
+            placeholder="Card Holder Name"
+            required
+            #cardName="ngModel"
+            [class.is-invalid]="cardName.touched"
+          />
+        </div>
+        <small class="text-danger" *ngIf="cardName.touched"
+          >Card Holder Name is required field</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="cardNumber">CARD NUMBER</label>
+        <div class="input-group">
+          <input
+            type="tel"
+            class="form-control"
+            min="16"
+            max="16"
+            [(ngModel)]="cardNumber"
+            name="cardNumber"
+            placeholder="Valid Card Number"
+            required
+            #cardNum="ngModel"
+            [class.is-invalid]="cardNum.touched"
+          />
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="material-icons">&#xe870;</i>
+            </span>
+          </div>
+        </div>
+        <small class="text-danger" *ngIf="cardNum.touched"
+          >Card Number is required field</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="cardExpiry"><span>EXPIRATION</span> DATE</label>
+        <input
+          type="tel"
+          class="form-control"
+          [(ngModel)]="cardExpiry"
+          name="cardExpiry"
+          placeholder="MM / YY"
+          autocomplete="cc-exp"
+          required
+          #expiry="ngModel"
+          [class.is-invalid]="expiry.touched"
+        />
+        <small class="text-danger" *ngIf="expiry.touched"
+          >Expiry Date is required field</small
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="cardCVV">CVV CODE</label>
+        <input
+          type="tel"
+          class="form-control"
+          [(ngModel)]="cardCVV"
+          name="cardCVV"
+          placeholder="CVV"
+          required
+          #cvv="ngModel"
+          [class.is-invalid]="cvv.touched"
+        />
+        <small class="text-danger" *ngIf="cvv.touched"
+          >CVV is required field</small
+        >
+      </div>
+      <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="addMoneyForm.form.invalid">
+        Add Money
+      </button>
+    </form>
+  </div>
 </div>

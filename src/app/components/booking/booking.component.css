@@ -1,0 +1,13 @@
+.bookingFormCard {
+    width: 75%;
+    padding-bottom: 2%;
+    min-height: 60vh;
+    margin: auto;
+}
+
+.bookingForm {
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    justify-content: space-around;
+}

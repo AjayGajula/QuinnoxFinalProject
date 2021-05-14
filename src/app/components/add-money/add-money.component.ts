@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-money',
@@ -18,8 +19,8 @@ export class AddMoneyComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  addMoney() {
-    alert(this.amount)
+  addMoney(addMoneyForm:NgForm) {
+    alert(addMoneyForm.value.amount);
   }
 
 }

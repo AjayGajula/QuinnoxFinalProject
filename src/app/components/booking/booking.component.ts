@@ -25,7 +25,7 @@ export class BookingComponent implements OnInit {
   }
   checkAvailable(bookingForm : NgForm) {
     this.service.shareBooking(bookingForm.value)
-    this.router.navigate(['/availableRooms'])
+    this.router.navigate(['/roomCheck'])
   }
   
 }
