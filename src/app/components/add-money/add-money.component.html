@@ -1,26 +1,13 @@
 <div class="card">
-  <div class="card-header">{{ title }}</div>
-  <div class="card-body">
-    <form #addMoneyForm="ngForm" (ngSubmit)="addMoney(addMoneyForm)">
-      <div class="form-group">
-        <label for="amount">AMOUNT</label>
-        <div class="input-group">
-          <input
-            type="number"
-            class="form-control"
-            [(ngModel)]="amount"
-            name="amount"
-            placeholder="Enter amount in INR"
-            required
-            autofocus
-            #money="ngModel"
-            [class.is-invalid]="money.touched && money.invalid"
-          />
-        </div>
-        <small
-          class="text-danger"
-          [class.d-none]="money.untouched || money.valid"
-          >Amount is required field</small
+    <div class="card-header">{{ title }}</div>
+    <div class="card-body">
+        <form #addMoneyForm="ngForm" (ngSubmit)="addMoney(addMoneyForm)">
+            <div class="form-group">
+                <label for="amount">AMOUNT</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" [(ngModel)]="amount" name="amount" placeholder="Enter amount in INR" required autofocus #money="ngModel" [class.is-invalid]="money.touched && money.invalid" />
+                </div>
+                <small class="text-danger" [class.d-none]="money.untouched || money.valid">Amount is required field</small
         >
       </div>
       <div class="form-group">
