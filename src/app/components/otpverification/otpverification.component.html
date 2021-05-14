@@ -1,21 +1,21 @@
+<p>otpverification works!</p>
 <div id="wrapper">
-    <div id="dialog">
-        <h4>Please enter the 6-digit verification code we sent via SMS:</h4>
-        <form #myform="ngForm" id="form">
-            <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" />
-            <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" />
-            <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" />
-            <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" />
-            <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" />
-            <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" />
+  <div id="dialog">
+    <h4>Please enter the 6-digit verification code we sent via SMS:</h4>
+    <form #myform="ngForm" (ngSubmit)="authComplete()" id="form">
+      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" [(ngModel)]="otp[0]" name="otp1" />
+      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" [(ngModel)]="otp[1]" name="otp2" />
+      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" [(ngModel)]="otp[2]" name="otp3" />
+      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" [(ngModel)]="otp[3]" name="otp4" />
+      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" [(ngModel)]="otp[4]" name="otp5" />
+      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" [(ngModel)]="otp[5]" name="otp6" />
 
-            <button class="btn btn-primary btn-embossed">Verify</button>
-        </form>
+      <button class="btn btn-primary btn-embossed" type="submit">Verify</button>
+    </form>
 
-        <div>
-            <small>Didn't receive the code?</small> <br />
-            <a href="#"><small>Resend code again</small> </a><br />
-        </div>
-        <img src="http://jira.moovooz.com/secure/attachment/10424/VmVyaWZpY2F0aW9uLnN2Zw==" alt="test" />
+    <div>
+      <small>Didn't receive the code?</small> <br />
+      <a href="#"><small>Resend code again</small> </a><br />
     </div>
+  </div>
 </div>

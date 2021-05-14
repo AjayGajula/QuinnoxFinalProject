@@ -1,0 +1,26 @@
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-current-day-tab" data-toggle="tab" href="#nav-current-day" role="tab" aria-controls="nav-current-day" aria-selected="true">Current Day Bookings</a>
+      <a class="nav-item nav-link" id="nav-upcoming-tab" data-toggle="tab" href="#nav-upcoming" role="tab" aria-controls="nav-upcoming" aria-selected="false">Upcoming Bookings</a>
+      <a class="nav-item nav-link" id="nav-earnings-tab" data-toggle="tab" href="#nav-earnings" role="tab" aria-controls="nav-earnings" aria-selected="false">Total Earnings</a>
+      <a class="nav-item nav-link" id="nav-add-room-tab" data-toggle="tab" href="#nav-add-room" role="tab" aria-controls="nav-add-room" aria-selected="false">Add Room</a>
+      <a class="nav-item nav-link" id="nav-show-rooms-tab" data-toggle="tab" href="#nav-show-rooms" role="tab" aria-controls="nav-show-rooms" aria-selected="false">Show Rooms</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-current-day" role="tabpanel" aria-labelledby="nav-current-day-tab">
+        <button type="submit" (click)="posting()">Submit</button>
+    </div>
+    <div class="tab-pane fade" id="nav-upcoming" role="tabpanel" aria-labelledby="nav-upcoming-tab">
+        upcoming
+    </div>
+    <div class="tab-pane fade" id="nav-earnings" role="tabpanel" aria-labelledby="nav-earnings-tab">
+        earnings
+    </div>
+    <div class="tab-pane fade" id="nav-add-room" role="tabpanel" aria-labelledby="nav-add-room-tab">
+        add room
+    </div>
+    <div class="tab-pane fade" id="nav-show-rooms" role="tabpanel" aria-labelledby="nav-show-rooms-tab">
+        show rooms
+    </div>
+  </div>

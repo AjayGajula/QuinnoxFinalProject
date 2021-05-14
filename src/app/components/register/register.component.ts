@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/commonClasses/user';
 import { ApiService } from 'src/app/services/api.service';
+import { CommonServiceService } from '../../services/common-service.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class RegisterComponent implements OnInit {
   user = new User();
   msg = '';
-  constructor(private service: ApiService, private router: Router) {}
+  constructor(private service: ApiService, private commonService: CommonServiceService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -23,17 +23,9 @@ export class RegisterComponent implements OnInit {
           this.msg = "User Already exists. Please Login";
         }
         else{
-          this.service.createUser(this.user).then(
-            (postData) => {
-              console.log(postData);
-              this.msg = '';
-              this.router.navigate(['/login']);
-            },
-            (error) => {
-              console.log('exception occured');
-              this.msg = error.error;
-            }
-          );
+          this.msg = '';
+          this.commonService.storeUser(this.user);
+          this.router.navigate(['/aadharverification']);
         }
       }
     );
