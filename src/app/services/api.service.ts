@@ -67,4 +67,13 @@ export class ApiService {
       this.baseURL + 'findAllBookings/{id}'
     );
   }
+
+
+  // extras
+  public createRoom(data) {
+    return this.http.post(`${this.baseUrl}/addRoom`, data, this.createHeader('application/json')).toPromise()
+  }
+  delRoomById(id: String){
+    return this.http.delete(`${this.baseUrl}/deleteRoom/${id}`,  this.createHeader('application/json')).toPromise();
+  }
 }
