@@ -60,7 +60,6 @@ export class ApiService {
   // otp
   public getOtp(): Observable<any> {
     return this.http.get<any>("http://localhost:8080/phnumverify/+917019218625",this.corsHeader())
-    //https://cors-anywhere.herokuapp.com/https://r5pevav13l.execute-api.ap-south-1.amazonaws.com/temp/aadhar-verify?aadharNum=668571035584
   }
 
 
@@ -73,7 +72,10 @@ export class ApiService {
     }), responseType: 'text' };
   }
 
-
+  //aadhar
+  checkAadhar(id: String): Observable<any> {
+    return this.http.get(`https://cors-anywhere.herokuapp.com/https://r5pevav13l.execute-api.ap-south-1.amazonaws.com/temp/aadhar-verify?aadharNum=${id}`);
+  }
 
 
 
