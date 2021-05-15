@@ -31,23 +31,30 @@ export class MyBookingComponent implements OnInit {
   ngOnInit(): void {
     this.cancelConfirm = false;
     this.data = this.commonService.user;
-    this.service.getBookings().subscribe(res => {
-      this.userBookings = res.map(
-        item=>{
-          let fromDate = this.datePipe.transform(item.bookedFrom, 'yyyy-MM-dd');
-          let currDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-          let delStatus=false;
-          if(fromDate > currDate){
-            delStatus=true;
-          }
-          item.delStatus=delStatus
-          console.log(item);
-          
-          return item;
+      this.service.getBookings().subscribe(res => {
+      res.map(item => {
+        let fromDate = this.datePipe.transform(item.bookedFrom, 'yyyy-MM-dd');
+        let currDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+        let delStatus=false;
+        let bookingStatus='Expired'
+        if(fromDate > currDate && item.currentStatus && item.uId === this.commonService.user.id){
+          delStatus=true;
+          bookingStatus="Active"
         }
-      )
+        if(fromDate > currDate && !item.currentStatus && item.uId === this.commonService.user.id){
+          delStatus=false;
+          bookingStatus="Cancelled"
+        }
+        item.bookingStatus=bookingStatus;
+        item.delStatus=delStatus
+        if(item.uId == this.commonService.user.id){
+          this.userBookings.push(item)
+        }
+      });
     });
   }
+  
+
   cancelBooking(bookingId) {
     this.cancelConfirm = confirm('are you sure???');
     if (this.cancelConfirm === true) {

@@ -59,33 +59,34 @@ export class AdminOpsComponent implements OnInit {
       return fromDate > currDate;
     }
   }
-  // roomPost = {
-  //   id: '301',
-  //   roomType: 'Suite',
-  //   cost: 2000,
-  //   capacity: 3,
-  //   bookings: [
-  //     {
-  //       bookingStatus: true,
-  //       bookingFrom: '2021-05-16',
-  //       bookingTo: '2021-05-18',
-  //       uId: 'virat@gmail.com'
-  //     }
-  //   ]
-  // };
-  //   {
-  //     id: 'b2',
-  //     uId: 'smith@gmail.com',
-  //     rId: '301',
-  //     bookedDays: 3,
-  //     bookedFrom: '2021-05-16',
-  //     bookedTo: '2021-05-18',
-  //     costPerDay: 2000,
-  //     currentStatus: true
-  //   };
-  // postData() {
+  roomPost =
+    // {
+    //   id: '301',
+    //   roomType: 'Suite',
+    //   cost: 2000,
+    //   capacity: 3,
+    //   bookings: [
+    //     {
+    //       bookingStatus: true,
+    //       bookingFrom: '2021-05-16',
+    //       bookingTo: '2021-05-18',
+    //       uId: 'virat@gmail.com'
+    //     }
+    //   ]
+    // };
+    {
+      id: 'b1621067646789898',
+      uId: 'karthik@gmail.com',
+      rId: '104',
+      bookedDays: 2,
+      bookedFrom: '2021-03-12',
+      bookedTo: '2021-04-16',
+      costPerDay: 2000,
+      currentStatus: true
+    };
+  postData() {
   //   this.service.createRoom(this.roomPost);
   //   // this.service.delBookById("b5");
-  //   // this.service.addBooking(this.roomPost);
-  // }
+    this.service.addBooking(this.roomPost);
+  }
 }

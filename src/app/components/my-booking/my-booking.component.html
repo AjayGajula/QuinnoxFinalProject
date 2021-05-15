@@ -10,6 +10,7 @@
                     <th>From</th>
                     <th>To</th>
                     <th>Amount</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -23,8 +24,9 @@
                         <td>{{ booking.bookedFrom }}</td>
                         <td>{{ booking.bookedTo }}</td>
                         <td>{{ booking.costPerDay * booking.bookedDays }}</td>
+                        <td>{{ booking.bookingStatus }}</td>
                         <td>
-                            <button [disabled]="booking.delStatus" class="btn btn-danger btn-sm" (click)="cancelBooking(booking.id)">
+                            <button [disabled]="!booking.delStatus" class="btn btn-danger btn-sm" (click)="cancelBooking(booking.id)">
                                   Cancel
                                 </button>
                         </td>
@@ -32,11 +34,11 @@
                 </ng-template>
                 <ng-template #hide>
                     <tr>
-                        <th colspan="7" style="text-align: center">You have no bookings. <a routerLink="/booking">Book Now</a></th>
+                        <th colspan="8" style="text-align: center">You have no bookings. <a routerLink="/booking">Book Now</a></th>
                     </tr>
                 </ng-template>
                 <tr>
-                        <td colspan="7" style="text-align: center"><i>Note: </i>Cancellation is allowed only for upcoming bookings!</td>
+                        <td colspan="8" style="text-align: center"><i>Note: </i>Cancellation is allowed only for upcoming bookings!</td>
                     </tr>
             </tbody>
         </table>
