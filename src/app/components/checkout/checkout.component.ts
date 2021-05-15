@@ -56,6 +56,7 @@ export class CheckoutComponent implements OnInit {
     this.apiService.cancelUpdateRoom(this.room);
     this.walletData.id=this.commonService.user.email;
     this.walletData.wallet=this.commonService.user.wallet - this.totalAmount;
+    this.commonService.user.wallet=this.walletData.wallet;
     this.apiService.updateWallet(this.walletData);
     alert('Booking Successfull with id '+this.bookingData.id);
     this.router.navigate(['/myBooking'])

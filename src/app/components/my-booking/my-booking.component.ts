@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { CommonServiceService } from '../../services/common-service.service';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-booking',
@@ -13,7 +14,8 @@ export class MyBookingComponent implements OnInit {
   constructor(
     private service: ApiService,
     private commonService: CommonServiceService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private router: Router
   ) { }
   msg: string = '';
   data: any;
@@ -44,12 +46,13 @@ export class MyBookingComponent implements OnInit {
     if (this.cancelConfirm === true) {
       this.service.getBookingById(bookingId).subscribe(res => {
         res.currentStatus = false;
-        this.service.cancelUpdateBooking(res);
+        this.service.cancelUpdateBooking(res).then(
+         date=>this.ngOnInit()
+        );
         this.room.id = res.rId;
         this.data.wallet=this.data.wallet+(res.bookedDays*res.costPerDay);
         this.service.updateWallet(this.data);
         this.service.cancelUpdateRoom(this.room);
-        this.ngOnInit();
       });
     }
   }

@@ -29,7 +29,7 @@ export class RoomAvailabeComponent implements OnInit {
       (data) => {
         this.data = data.filter(
           (item: any) => {
-            if (item.bookings[0].bookingStatus === true && this.datepipe.transform(item.bookings[0].bookingTo, 'YYYY-MM-dd') < fromDataForm) {
+            if (item.roomType == this.commonService.booking.room && item.bookings[0].bookingStatus === true && this.datepipe.transform(item.bookings[0].bookingTo, 'YYYY-MM-dd') < fromDataForm) {
               return item;
             }
             return item.bookings[0].bookingStatus === false && item.roomType == this.commonService.booking.room
@@ -49,7 +49,7 @@ export class RoomAvailabeComponent implements OnInit {
     this.commonService.booking.costPerDay = item.cost;
     this.from = new Date(this.commonService.booking.fromDate)
     this.to = new Date(this.commonService.booking.toDate)
-    this.days = (this.to - this.from) / (1000 * 3600 * 24);
+    this.days = (this.to - this.from) / (1000 * 3600 * 24)+1;
     this.commonService.booking.bookedDays = this.days;
     this.router.navigate(['/checkout'])
   }
