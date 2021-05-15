@@ -1,21 +1,26 @@
-<p>otpverification works!</p>
 <div id="wrapper">
-  <div id="dialog">
-    <h4>Please enter the 6-digit verification code we sent via SMS:</h4>
-    <form #myform="ngForm" (ngSubmit)="authComplete()" id="form">
-      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" [(ngModel)]="otp[0]" name="otp1" />
-      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" [(ngModel)]="otp[1]" name="otp2" />
-      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" [(ngModel)]="otp[2]" name="otp3" />
-      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" [(ngModel)]="otp[3]" name="otp4" />
-      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" [(ngModel)]="otp[4]" name="otp5" />
-      <input type="text" maxlength="1" ngModel pattern="[0-9]{1}" [(ngModel)]="otp[5]" name="otp6" />
+    <div id="dialog">
+        <h4>Please enter the 6-digit verification code we sent via SMS:</h4>
+        <form #myform="ngForm" (ngSubmit)="authComplete()" id="form" #verifyform="ngForm">
+            <input type="text" maxlength="6" ngModel pattern="[0-9]{1}" [(ngModel)]="otp" name="otp1" #otpverify="ngModel" [class.is-invalid]="otpverify.invalid && otpverify.touched" />
+            <div *ngIf="
+              otpverify.errors &&
+              otpverify.invalid &&
+              otpverify.touched
+            ">
+                <small class="text-danger" *ngIf="otpverify.errors.required">Aadhar number is required field</small
+            >
+            <small class="text-danger" *ngIf="otpverify.errors.minlength"
+              >Enter valid Aadhar Number</small
+            >
+          </div>
+        <span style="color: red">{{msg}}</span>
+            <button class="btn btn-primary btn-embossed" type="submit">Verify</button>
+        </form>
 
-      <button class="btn btn-primary btn-embossed" type="submit">Verify</button>
-    </form>
-
-    <div>
-      <small>Didn't receive the code?</small> <br />
-      <a href="#"><small>Resend code again</small> </a><br />
+        <div>
+            <small>Didn't receive the code?</small> <br />
+                <span id="resendBtn" (click)="checkOtp()"><small>Resend code again</small> </span><br />
+            </div>
     </div>
-  </div>
 </div>
