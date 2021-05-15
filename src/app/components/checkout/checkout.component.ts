@@ -5,7 +5,7 @@ import { BookingPost } from 'src/app/commonClasses/bookingPost';
 import { User } from 'src/app/commonClasses/user';
 import { ApiService } from 'src/app/services/api.service';
 import { CommonServiceService } from 'src/app/services/common-service.service';
-import {​​​​​​​​ saveAs }​​​​​​​​ from 'file-saver';
+import * as fileSaver from 'file-saver';
 
 @Component({
   selector: 'app-checkout',
@@ -95,6 +95,6 @@ export class CheckoutComponent implements OnInit {
     let csvArray = csv.join('\r\n');
 
     var blob = new Blob([csvArray], {type: 'text/csv' })
-    saveAs(blob, `${data[0].Booking_Id}.csv`);
+    fileSaver.saveAs(blob, `${data[0].Booking_Id}.csv`);
   }
 }
