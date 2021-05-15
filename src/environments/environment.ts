@@ -4,9 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://ec2-3-108-66-146.ap-south-1.compute.amazonaws.com:8080'
+  baseUrl: 'http://ec2-3-108-66-146.ap-south-1.compute.amazonaws.com:8080',
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

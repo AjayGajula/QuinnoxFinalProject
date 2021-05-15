@@ -3,6 +3,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { CommonServiceService } from '../../services/common-service.service';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-my-booking',
@@ -28,6 +29,14 @@ export class MyBookingComponent implements OnInit {
     ]
   };
   userBookings = [];
+  otpData =
+    {
+      "account_sid": "",//add your sid
+      "auth_token": "",// auth_token
+      "sender": "+",//sender
+      "reciever": "+",//verified number
+      "eventtype": "cancelbooking"
+    }
   ngOnInit(): void {
     this.cancelConfirm = false;
     this.data = this.commonService.user;
@@ -53,15 +62,19 @@ export class MyBookingComponent implements OnInit {
       });
     });
   }
-  
-
   cancelBooking(bookingId) {
     this.cancelConfirm = confirm('are you sure???');
     if (this.cancelConfirm === true) {
       this.service.getBookingById(bookingId).subscribe(res => {
         res.currentStatus = false;
         this.service.cancelUpdateBooking(res).then(
-         date=>this.ngOnInit()
+         data=>{
+          this.service.getOtp(this.otpData).then(
+            data => console.log(data),            
+            error => console.log(error)
+          );
+           this.ngOnInit()
+         }
         );
         this.room.id = res.rId;
         this.data.wallet=this.data.wallet+(res.bookedDays*res.costPerDay);
