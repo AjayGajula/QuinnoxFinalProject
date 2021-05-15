@@ -56,7 +56,30 @@ export class ApiService {
   updateWallet(data:any){
     return this.http.put(`${this.baseUrl}/updateWallet/${data.id}`, data, this.createHeader('application/json')).toPromise()
   }
-  /////////RITESH
+
+  // otp
+  public getOtp(): Observable<any> {
+    return this.http.get<any>("http://localhost:8080/phnumverify/+917019218625",this.corsHeader())
+    //https://cors-anywhere.herokuapp.com/https://r5pevav13l.execute-api.ap-south-1.amazonaws.com/temp/aadhar-verify?aadharNum=668571035584
+  }
+
+
+  private corsHeader(): any {
+    return { headers: new HttpHeaders({
+      // "Origin":'http://localhost:4200/',
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': 'http://localhost:4200/'
+    }), responseType: 'text' };
+  }
+
+
+
+
+
+
+
+
   baseURL='http://ec2-3-108-66-146.ap-south-1.compute.amazonaws.com:8080/';
 
   public checkAvailability(): Observable<any> {

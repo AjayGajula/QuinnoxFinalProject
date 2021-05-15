@@ -5,6 +5,8 @@ import { BookingPost } from 'src/app/commonClasses/bookingPost';
 import { User } from 'src/app/commonClasses/user';
 import { ApiService } from 'src/app/services/api.service';
 import { CommonServiceService } from 'src/app/services/common-service.service';
+import {​​​​​​​​ saveAs }​​​​​​​​ from 'file-saver';
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -61,6 +63,19 @@ export class CheckoutComponent implements OnInit {
     this.commonService.user.wallet=this.walletData.wallet;
     this.apiService.updateWallet(this.walletData);
     alert('Booking Successfull with id '+this.bookingData.id);
+    let csvCreator=[
+      {
+        Booking_Id: this.bookingData.id,
+        User_Email: this.bookingData.uId,
+        Room_No: this.bookingData.rId,
+        From: this.bookingData.bookedFrom,
+        To: this.bookingData.bookedTo,
+        Days: this.bookingData.bookedDays,
+        Amount: this.bookingData.costPerDay*this.bookingData.bookedDays
+      }
+    ]
+    this.downloadFile(csvCreator)
+    
     this.router.navigate(['/myBooking'])
     }
     else{
@@ -69,5 +84,17 @@ export class CheckoutComponent implements OnInit {
   }
   cancelBooking(){
     this.router.navigate(['/book'])
+  }
+  downloadFile(data: any) {
+    console.log(data);
+    
+    const replacer = (key, value) => value === null ? '' : value; // specify how you want to handle null values here
+    const header = Object.keys(data[0]);
+    let csv = data.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
+    csv.unshift(header.join(','));
+    let csvArray = csv.join('\r\n');
+
+    var blob = new Blob([csvArray], {type: 'text/csv' })
+    saveAs(blob, `${data[0].Booking_Id}.csv`);
   }
 }
