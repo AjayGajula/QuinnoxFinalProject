@@ -10,6 +10,9 @@ export class AppComponent {
   title = 'Hotel Management System';
   loggedIn=false;
   adminLoggedIn=false;//------------- must change
+  redirectedFromForgetPassword=false;
+  redirectedFromForgetPasswordOTP:any;
+
   constructor(private router: Router){}
   ngOnInit(): void {
     if(!this.loggedIn || this.adminLoggedIn){

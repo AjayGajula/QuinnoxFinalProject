@@ -30,9 +30,4 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
-  // printOtp(){
-  // this.service.getOtp().subscribe(
-  //   d=>console.log(d+"")
-  // )
-  // }
 }
