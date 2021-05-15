@@ -34,7 +34,7 @@ export class MyBookingComponent implements OnInit {
         let fromDate = this.datePipe.transform(item.bookedFrom, 'yyyy-MM-dd');
         let currDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
         return (
-          (item.uId === this.commonService.user.id) && (fromDate >= currDate) && (item.currentStatus === true)
+          (item.uId === this.commonService.user.id) && (fromDate > currDate) && (item.currentStatus === true)
         );
       });
     });
@@ -46,6 +46,8 @@ export class MyBookingComponent implements OnInit {
         res.currentStatus = false;
         this.service.cancelUpdateBooking(res);
         this.room.id = res.rId;
+        this.data.wallet=this.data.wallet+(res.bookedDays*res.costPerDay);
+        this.service.updateWallet(this.data);
         this.service.cancelUpdateRoom(this.room);
         this.ngOnInit();
       });
