@@ -24,7 +24,8 @@ export class CheckoutComponent implements OnInit {
       {
         bookingStatus: true,
         bookingFrom:null,
-        bookingTo:null
+        bookingTo:null,
+        uId:null
       }
     ]
   };
@@ -53,6 +54,7 @@ export class CheckoutComponent implements OnInit {
     this.room.id=this.commonService.booking.rId
     this.room.bookings[0].bookingFrom=this.commonService.booking.fromDate;
     this.room.bookings[0].bookingTo=this.commonService.booking.toDate;
+    this.room.bookings[0].uId=this.commonService.user.id;
     this.apiService.cancelUpdateRoom(this.room);
     this.walletData.id=this.commonService.user.email;
     this.walletData.wallet=this.commonService.user.wallet - this.totalAmount;

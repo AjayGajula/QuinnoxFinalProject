@@ -59,16 +59,20 @@ export class AdminOpsComponent implements OnInit {
       return fromDate > currDate;
     }
   }
-  // roomPost =
-  // // {
-  // //     id: '301',
-  // //     roomType: 'Suite',
-  // //     cost: 2000,
-  // //     capacity: 3,
-  // //     bookings: [
-  // //       { bookingStatus: true, bookingFrom: "2021-05-16", bookingTo: "2021-05-18", uId: "smith@gmail.com" }
-  // //     ]
-  // //   };
+  // roomPost = {
+  //   id: '301',
+  //   roomType: 'Suite',
+  //   cost: 2000,
+  //   capacity: 3,
+  //   bookings: [
+  //     {
+  //       bookingStatus: true,
+  //       bookingFrom: '2021-05-16',
+  //       bookingTo: '2021-05-18',
+  //       uId: 'virat@gmail.com'
+  //     }
+  //   ]
+  // };
   //   {
   //     id: 'b2',
   //     uId: 'smith@gmail.com',
@@ -80,8 +84,8 @@ export class AdminOpsComponent implements OnInit {
   //     currentStatus: true
   //   };
   // postData() {
-  //   // this.service.createRoom(this.roomPost);
-  //   // this.service.delBookById("b1621004789972");
-  //   this.service.addBooking(this.roomPost);
+  //   this.service.createRoom(this.roomPost);
+  //   // this.service.delBookById("b5");
+  //   // this.service.addBooking(this.roomPost);
   // }
 }
