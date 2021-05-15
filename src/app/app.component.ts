@@ -11,7 +11,11 @@ export class AppComponent {
   loggedIn=false;
   adminLoggedIn=false;//------------- must change
   constructor(private router: Router){}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(!this.loggedIn || this.adminLoggedIn){
+      this.router.navigate(["/login"])
+    }
+  }
   logout(){
     this.loggedIn=false;
     this.adminLoggedIn=false;
