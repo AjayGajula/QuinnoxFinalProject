@@ -24,7 +24,7 @@
                         <td>{{ booking.bookedTo }}</td>
                         <td>{{ booking.costPerDay * booking.bookedDays }}</td>
                         <td>
-                            <button class="btn btn-danger btn-sm" (click)="cancelBooking(booking.id)">
+                            <button [disabled]="booking.delStatus" class="btn btn-danger btn-sm" (click)="cancelBooking(booking.id)">
                                   Cancel
                                 </button>
                         </td>

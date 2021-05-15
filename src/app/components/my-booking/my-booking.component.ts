@@ -32,13 +32,20 @@ export class MyBookingComponent implements OnInit {
     this.cancelConfirm = false;
     this.data = this.commonService.user;
     this.service.getBookings().subscribe(res => {
-      this.userBookings = res.filter(item => {
-        let fromDate = this.datePipe.transform(item.bookedFrom, 'yyyy-MM-dd');
-        let currDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-        return (
-          (item.uId === this.commonService.user.id) && (fromDate > currDate) && (item.currentStatus === true)
-        );
-      });
+      this.userBookings = res.map(
+        item=>{
+          let fromDate = this.datePipe.transform(item.bookedFrom, 'yyyy-MM-dd');
+          let currDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+          let delStatus=false;
+          if(fromDate > currDate){
+            delStatus=true;
+          }
+          item.delStatus=delStatus
+          console.log(item);
+          
+          return item;
+        }
+      )
     });
   }
   cancelBooking(bookingId) {
