@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { OtpverificationComponent } from './components/otpverification/otpverification.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'changePassword', component: ChangePasswordComponent },
   { path: '', component: HomeComponent },
 ];
 
@@ -49,5 +51,6 @@ export const routingComponents = [
   RoomAvailabeComponent,
   CheckoutComponent,
   BookingComponent,
-  AboutComponent
+  AboutComponent,
+  ChangePasswordComponent
 ];

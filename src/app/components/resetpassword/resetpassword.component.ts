@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 import { User } from 'src/app/commonClasses/user';
+import { ApiService } from 'src/app/services/api.service';
+import { CommonServiceService } from 'src/app/services/common-service.service';
 
 
 @Component({
@@ -10,8 +14,29 @@ import { User } from 'src/app/commonClasses/user';
 })
 export class ResetpasswordComponent implements OnInit {
   user = new User();
+  otpReceived: any;
+  otpData: any;
+  emailToSearch: any;
+  msg: string;
+  constructor(private service: ApiService, private router:Router,private commonService:CommonServiceService,private redirectService:AppComponent) { }
 
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+  ngOnInit(): void { }
+  checkUser() {
+    this.service.getUser(this.emailToSearch).subscribe(
+      data => {
+        if(data.id==this.emailToSearch){
+        this.msg='';
+        this.commonService.user=data;
+        this.redirectService.redirectedFromForgetPassword=true;
+        this.router.navigate(['/otpverification']);
+        }
+        else{
+          this.msg="User Not Found"
+        }
+      },
+      error => console.log(error)
+      
+    )
+  }
+    
+  }

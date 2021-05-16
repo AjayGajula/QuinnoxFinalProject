@@ -22,7 +22,8 @@ import { MaterialModule } from './material.module';
 import { routingComponents, AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminOpsComponent } from './components/admin-ops/admin-ops.component';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
+import { ChangePasswordComponent } from './components/change-password/change-password.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { DatePipe } from '@angular/common'
     ResetpasswordComponent,
     AboutComponent,
     routingComponents,
-    AdminOpsComponent
+    AdminOpsComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
