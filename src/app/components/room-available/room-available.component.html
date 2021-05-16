@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody>
-                <div *ngIf="data.length !=0; then show; else hide"></div>
+                <div *ngIf="data; then show; else hide"></div>
                 <ng-template #show>
                     <tr *ngFor="let item of data">
                         <td>{{item.id}}</td>
