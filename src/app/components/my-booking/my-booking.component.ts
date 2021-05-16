@@ -3,7 +3,6 @@ import { ApiService } from 'src/app/services/api.service';
 import { CommonServiceService } from '../../services/common-service.service';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-my-booking',
