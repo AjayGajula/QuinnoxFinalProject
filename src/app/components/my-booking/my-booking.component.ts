@@ -74,7 +74,10 @@ export class MyBookingComponent implements OnInit {
               console.log(data)
               this.ngOnInit()
             },            
-            error => console.log(error)
+            error => {
+              this.ngOnInit()
+              console.log(error)
+            }
           );
          }
         );
