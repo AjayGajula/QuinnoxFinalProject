@@ -13,8 +13,13 @@ export class ChangePasswordComponent implements OnInit {
   msg: string;
   data = {
     id:this.commonService.user.id,
+<<<<<<< HEAD
     password: ''
   };
+=======
+    password: null
+  }
+>>>>>>> 88f54c9297572b0c4024bfb45fffc9e89d3a0d7e
   constructor(private service: ApiService, private commonService: CommonServiceService, private route: Router) { }
   
   ngOnInit(): void {
