@@ -37,6 +37,7 @@ export class MyBookingComponent implements OnInit {
       "eventtype": "cancelbooking"
     }
   ngOnInit(): void {
+    this.userBookings=[]
     this.cancelConfirm = false;
     this.data = this.commonService.user;
       this.service.getBookings().subscribe(res => {
