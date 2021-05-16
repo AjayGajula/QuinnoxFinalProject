@@ -70,10 +70,12 @@ export class MyBookingComponent implements OnInit {
         this.service.cancelUpdateBooking(res).then(
          data=>{
           this.service.getOtp(this.otpData).then(
-            data => console.log(data),            
+            data => {
+              console.log(data)
+              this.ngOnInit()
+            },            
             error => console.log(error)
           );
-           this.ngOnInit()
          }
         );
         this.room.id = res.rId;

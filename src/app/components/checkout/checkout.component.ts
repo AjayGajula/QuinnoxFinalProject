@@ -98,11 +98,6 @@ export class CheckoutComponent implements OnInit {
     this.router.navigate(['/book'])
   }
   downloadFile(data: any) {
-<<<<<<< HEAD
-=======
-    console.log(data);
-
->>>>>>> 64a4e5fd3f2e5c5e3bd511914423e4a73ebd9222
     const replacer = (key, value) => value === null ? '' : value; // specify how you want to handle null values here
     const header = Object.keys(data[0]);
     let csv = data.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));

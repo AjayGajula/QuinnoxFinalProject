@@ -4,12 +4,8 @@
 
 export const environment = {
   production: false,
-<<<<<<< HEAD
-  // baseUrl: 'http://localhost:8080'
-  baseUrl: 'http://ec2-3-108-66-146.ap-south-1.compute.amazonaws.com:8080'
-=======
+  // baseUrl: 'http://localhost:8080',
   baseUrl: 'http://ec2-3-108-66-146.ap-south-1.compute.amazonaws.com:8080',
->>>>>>> 64a4e5fd3f2e5c5e3bd511914423e4a73ebd9222
 };
 /*
  * For easier debugging in development mode, you can import the following file
