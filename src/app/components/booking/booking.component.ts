@@ -20,7 +20,7 @@ import { Booking } from 'src/app/commonClasses/booking';
 export class BookingComponent implements OnInit {
   Booking = new Booking();
   minDate: any="";
-
+  minDateTo:any="";
   title: string = '';
   roomType = ['Delux', 'Super Delux', 'Super Delux AC', 'Suite'];
 
@@ -35,18 +35,24 @@ export class BookingComponent implements OnInit {
   }
 
   getDate() {
-    var date: any = new Date();
-    var toDate: any = date.getDate();
-    if (toDate < 10) {
-      toDate = '0' + toDate;
+    let date: any = new Date();
+    let fromDate: any = date.getDate();
+    if (fromDate < 10) {
+      fromDate = '0' + fromDate;
     }
+    let toDate: any =date.getDate()+1;
 
-    var month: any = date.getMonth() + 1;
+    if (fromDate < 10) {
+      fromDate = '0' + fromDate;
+    }
+    let month: any = date.getMonth() + 1;
     if (month < 10) {
       month = '0' + month;
     }
 
-    var year: any = date.getFullYear();
-    this.minDate = year + '-' + month + '-' + toDate;
+    let year: any = date.getFullYear();
+    this.minDate = year + '-' + month + '-' + fromDate;
+    this.minDateTo = year + '-' + month + '-' + toDate;
+    
   }
 }
