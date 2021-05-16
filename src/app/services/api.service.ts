@@ -61,24 +61,11 @@ export class ApiService {
   public getOtp(otpData) {
     return this.http.post("https://cors-anywhere.herokuapp.com/https://j9186hxap5.execute-api.ap-south-1.amazonaws.com/prod/pysendsms",otpData).toPromise()
   }
-
-
-  private corsHeader():any {
-    return { headers: new HttpHeaders({
-      "Origin":'http://localhost:4200/',
-      
-    }), responseType: 'text' };
-  }
-
   //aadhar
   checkAadhar(id: String): Observable<any> {
     return this.http.get(`https://cors-anywhere.herokuapp.com/https://r5pevav13l.execute-api.ap-south-1.amazonaws.com/temp/aadhar-verify?aadharNum=${id}`);
   }
-
-
-
-
-
+  
   public checkAvailability(): Observable<any> {
     return this.http.get<any>(
       this.baseUrl + '/findAllRooms'
