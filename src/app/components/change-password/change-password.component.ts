@@ -12,6 +12,7 @@ export class ChangePasswordComponent implements OnInit {
   password: any;
   msg: string;
   data = {
+    id:this.commonService.user.id,
     password: ''
   };
   constructor(private service: ApiService, private commonService: CommonServiceService, private route: Router) { }

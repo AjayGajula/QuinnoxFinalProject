@@ -20,17 +20,17 @@ export class OtpverificationComponent implements OnInit {
     private redirectService: AppComponent
   ) {}
   otpData = {
-    account_sid: '', //add your sid
-    auth_token: '', // auth_token
-    sender: '+', //sender
-    reciever: '+', //verified number
+    account_sid: 'ACfa16a09825863ef44f61c20bb6b94dd0', //add your sid
+    auth_token: 'a66351ee2f7aeb7d5b9f32cb5b4a65a2', // auth_token
+    sender: '+19284517212', //sender
+    reciever: '+918328552587', //verified number
     eventtype: 'phnumverify',
   };
   otpData1 = {
-    account_sid: '', //add your sid
-    auth_token: '', // auth_token
-    sender: '+', //sender
-    reciever: '+', //verified number
+    account_sid: 'ACfa16a09825863ef44f61c20bb6b94dd0', //add your sid
+    auth_token: 'a66351ee2f7aeb7d5b9f32cb5b4a65a2', // auth_token
+    sender: '+19284517212', //sender
+    reciever: '+918328552587', //verified number
     eventtype: 'forgotpwd',
   };
 
