@@ -13,32 +13,33 @@ import { CommonServiceService } from '../../services/common-service.service';
 export class OtpverificationComponent implements OnInit {
   msg: string;
   status: boolean;
-  constructor(private service: ApiService, private commonService: CommonServiceService, private router: Router, private redirectService: AppComponent) {
-  }
-  otpData =
-    {
-      "account_sid": "",//add your sid
-      "auth_token": "",// auth_token
-      "sender": "+",//sender
-      "reciever": "+",//verified number
-      "eventtype": "phnumverify"
-    }
-  otpData1 =
-    {
-      "account_sid": "",//add your sid
-      "auth_token": "",// auth_token
-      "sender": "+",//sender
-      "reciever": "+",//verified number
-      "eventtype": "forgotpwd"
-    }
+  constructor(
+    private service: ApiService,
+    private commonService: CommonServiceService,
+    private router: Router,
+    private redirectService: AppComponent
+  ) {}
+  otpData = {
+    account_sid: '', //add your sid
+    auth_token: '', // auth_token
+    sender: '+', //sender
+    reciever: '+', //verified number
+    eventtype: 'phnumverify',
+  };
+  otpData1 = {
+    account_sid: '', //add your sid
+    auth_token: '', // auth_token
+    sender: '+', //sender
+    reciever: '+', //verified number
+    eventtype: 'forgotpwd',
+  };
 
   ngOnInit(): void {
     console.log(this.redirectService.redirectedFromForgetPassword);
 
     if (this.redirectService.redirectedFromForgetPassword == true) {
       this.checkOtp(this.otpData1);
-    }
-    else {
+    } else {
       this.checkOtp(this.otpData);
     }
   }
@@ -48,17 +49,16 @@ export class OtpverificationComponent implements OnInit {
   authComplete() {
     if (this.redirectService.redirectedFromForgetPassword == true) {
       this.redirectService.redirectedFromForgetPassword = false;
+
       if (this.otpReceived == this.otp) {
-        this.msg = "";
+        this.msg = '';
         this.router.navigate(['/changePassword']);
+      } else {
+        this.msg = 'Invalid otp enter again';
       }
-      else {
-        this.msg = "Invalid otp enter again"
-      }
-    }
-    else {
+    } else {
       if (this.otpReceived == this.otp) {
-        this.msg = ""
+        this.msg = '';
         this.service.createUser(this.commonService.user).then(
           (postData) => {
             this.router.navigate(['/login']);
@@ -67,19 +67,17 @@ export class OtpverificationComponent implements OnInit {
             console.log('exception occured');
           }
         );
-      }
-      else {
-        this.msg = "Invalid otp enter again"
+      } else {
+        this.msg = 'Invalid otp enter again';
       }
     }
   }
   checkOtp(data: any) {
     this.service.getOtp(data).then(
-      success => {
-        this.otpReceived = success
+      (success) => {
+        this.otpReceived = success;
       },
-      error => console.log(error)
+      (error) => console.log(error)
     );
   }
 }
-
