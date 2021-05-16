@@ -79,17 +79,14 @@ export class ApiService {
 
 
 
-
-  baseURL='http://ec2-3-108-66-146.ap-south-1.compute.amazonaws.com:8080/';
-
   public checkAvailability(): Observable<any> {
     return this.http.get<any>(
-      this.baseURL + 'findAllRooms'
+      this.baseUrl + '/findAllRooms'
     );
   }
   public getBookings(): Observable<any> { 
     return this.http.get<any>(
-      this.baseURL + 'findAllBookings'
+      this.baseUrl + '/findAllBookings'
     );
   }
   // extras
