@@ -6,7 +6,6 @@ import { User } from 'src/app/commonClasses/user';
 import { ApiService } from 'src/app/services/api.service';
 import { CommonServiceService } from 'src/app/services/common-service.service';
 
-
 @Component({
   selector: 'app-resetpassword',
   templateUrl: './resetpassword.component.html',
@@ -18,25 +17,27 @@ export class ResetpasswordComponent implements OnInit {
   otpData: any;
   emailToSearch: any;
   msg: string;
-  constructor(private service: ApiService, private router:Router,private commonService:CommonServiceService,private redirectService:AppComponent) { }
+  constructor(
+    private service: ApiService,
+    private router: Router,
+    private commonService: CommonServiceService,
+    private redirectService: AppComponent
+  ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
   checkUser() {
     this.service.getUser(this.emailToSearch).subscribe(
-      data => {
-        if(data.id==this.emailToSearch){
-        this.msg='';
-        this.commonService.user=data;
-        this.redirectService.redirectedFromForgetPassword=true;
-        this.router.navigate(['/otpverification']);
-        }
-        else{
-          this.msg="User Not Found"
+      (data) => {
+        if (data.id == this.emailToSearch) {
+          this.msg = '';
+          this.commonService.user = data;
+          this.redirectService.redirectedFromForgetPassword = true;
+          this.router.navigate(['/otpverification']);
+        } else {
+          this.msg = 'User Not Found';
         }
       },
-      error => console.log(error)
-      
-    )
+      (error) => console.log(error)
+    );
   }
-    
-  }
+}
