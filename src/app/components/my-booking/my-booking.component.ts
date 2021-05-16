@@ -3,7 +3,6 @@ import { ApiService } from 'src/app/services/api.service';
 import { CommonServiceService } from '../../services/common-service.service';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-my-booking',
@@ -70,10 +69,12 @@ export class MyBookingComponent implements OnInit {
         this.service.cancelUpdateBooking(res).then(
          data=>{
           this.service.getOtp(this.otpData).then(
-            data => console.log(data),            
+            data => {
+              console.log(data)
+              this.ngOnInit()
+            },            
             error => console.log(error)
           );
-           this.ngOnInit()
          }
         );
         this.room.id = res.rId;

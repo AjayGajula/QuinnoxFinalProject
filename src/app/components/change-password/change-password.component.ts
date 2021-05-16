@@ -23,7 +23,7 @@ export class ChangePasswordComponent implements OnInit {
     this.service.resetPassword(this.data).then(
       success => {
         alert('password updated')
-        // this.route.navigate(['/login'])
+        this.route.navigate(['/login'])
       }
     )
   }

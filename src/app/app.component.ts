@@ -11,17 +11,16 @@ export class AppComponent {
   loggedIn=false;
   adminLoggedIn=false;//------------- must change
   redirectedFromForgetPassword=false;
-  redirectedFromForgetPasswordOTP:any;
 
   constructor(private router: Router){}
   ngOnInit(): void {
     if(!this.loggedIn || this.adminLoggedIn){
-      this.router.navigate(["/login"])
+      this.router.navigate(["/"])
     }
   }
   logout(){
     this.loggedIn=false;
     this.adminLoggedIn=false;
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 }
