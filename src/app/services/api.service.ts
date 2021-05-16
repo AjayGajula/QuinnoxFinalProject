@@ -58,17 +58,15 @@ export class ApiService {
   }
 
   // otp
-  public getOtp(): Observable<any> {
-    return this.http.get<any>("http://localhost:8080/phnumverify/+917019218625",this.corsHeader())
+  public getOtp(otpData) {
+    return this.http.post("https://cors-anywhere.herokuapp.com/https://j9186hxap5.execute-api.ap-south-1.amazonaws.com/prod/pysendsms",otpData).toPromise()
   }
 
 
-  private corsHeader(): any {
+  private corsHeader():any {
     return { headers: new HttpHeaders({
-      // "Origin":'http://localhost:4200/',
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Access-Control-Allow-Origin': 'http://localhost:4200/'
+      "Origin":'http://localhost:4200/',
+      
     }), responseType: 'text' };
   }
 
