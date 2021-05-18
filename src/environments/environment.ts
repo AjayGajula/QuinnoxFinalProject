@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   //baseUrl: 'http://localhost:8080',
-  baseUrl: 'http://ec2-3-108-66-146.ap-south-1.compute.amazonaws.com:8080',
+  baseUrl: 'http://ec2-52-66-246-178.ap-south-1.compute.amazonaws.com:8080',
 };
 /*
  * For easier debugging in development mode, you can import the following file

@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster&display=swap');
+
+.card-header{
+      font-family: 'Courgette',
+      cursive;
+      font-size: 32px;
+        
+        font-weight: 300;
+}

@@ -17,7 +17,7 @@ import { Booking } from 'src/app/commonClasses/booking';
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css'],
 })
-export class BookingComponent implements OnInit {
+export class BookingCardComponent implements OnInit {
   Booking = new Booking();
   minDate: any="";
   minDateTo:any="";

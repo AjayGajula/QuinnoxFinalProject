@@ -1,35 +1,35 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookingComponent } from './components/booking/booking.component';
+import { BookingCardComponent } from './components/booking/booking.component';
 import { AboutComponent } from './components/about/about.component';
-import { AddMoneyComponent } from './components/add-money/add-money.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
-import { MyBookingComponent } from './components/my-booking/my-booking.component';
+import { AddMoneyToWalletComponent } from './components/add-money-to-wallet/add-money.component';
+import { CheckoutPanelComponent } from './components/checkout-panel/checkout.component';
+import { UserBookingComponent } from './components/my-booking-component/my-booking.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RoomAvailabeComponent } from './components/room-available/room-available.component';
 
-import { AadharverificationComponent } from './components/aadharverification/aadharverification.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { OtpverificationComponent } from './components/otpverification/otpverification.component';
+import { AadharverifyComponent } from './components/aadhar/aadharverification.component';
+import { HomeComponent } from './components/home-component/home.component';
+import { LoginComponent } from './components/login-component/login.component';
+import { OtpverifyComponent } from './components/otpverification-component/otpverification.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { ChangePswdComponent } from './components/change-password-component/change-password.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
-  { path: 'aadharverification', component: AadharverificationComponent },
-  { path: 'otpverification', component: OtpverificationComponent },
-  { path: 'myBooking', component: MyBookingComponent },
+  { path: 'aadharverification', component: AadharverifyComponent },
+  { path: 'otpverification', component: OtpverifyComponent },
+  { path: 'myBooking', component: UserBookingComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'addMoney', component: AddMoneyComponent },
+  { path: 'addMoney', component: AddMoneyToWalletComponent },
   { path: 'roomCheck', component: RoomAvailabeComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'booking', component: BookingComponent },
+  { path: 'checkout', component: CheckoutPanelComponent },
+  { path: 'booking', component: BookingCardComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'changePassword', component: ChangePasswordComponent },
+  { path: 'changePassword', component: ChangePswdComponent },
   { path: '', component: HomeComponent },
 ];
 
@@ -43,14 +43,14 @@ export const routingComponents = [
   RegisterComponent,
   HomeComponent,
   ResetpasswordComponent,
-  AadharverificationComponent,
-  OtpverificationComponent,
-  MyBookingComponent,
+  AadharverifyComponent,
+  OtpverifyComponent,
+  UserBookingComponent,
   ProfileComponent,
-  AddMoneyComponent,
+  AddMoneyToWalletComponent,
   RoomAvailabeComponent,
-  CheckoutComponent,
-  BookingComponent,
+  CheckoutPanelComponent,
+  BookingCardComponent,
   AboutComponent,
-  ChangePasswordComponent
+  ChangePswdComponent
 ];

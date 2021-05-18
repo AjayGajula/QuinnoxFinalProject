@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg navbar-dark  static-top">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink="/">{{ title }}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,8 @@
         </div>
     </div>
 </nav>
-<div class="container-fluid mainContainer">
+
+<div class="bg">
     <router-outlet *ngIf="!adminLoggedIn"></router-outlet>
     <app-admin-ops *ngIf="adminLoggedIn"></app-admin-ops>
 </div>

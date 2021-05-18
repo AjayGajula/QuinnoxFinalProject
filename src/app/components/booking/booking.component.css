@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster&display=swap');
+
+.card-header {
+  font-family: 'Courgette',
+    cursive;
+  font-size: 32px;
+margin-bottom: 3%;
+  font-weight: 300;
+}
 .bookingFormCard {
     width: 75%;
     padding-bottom: 2%;

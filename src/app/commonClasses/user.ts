@@ -6,7 +6,8 @@ export class User {
   mobileNum: string;
   password: string;
   aadhar: string;
-  wallet:number=0;
+  wallet: number = 0;
+  isAdmin: string;
 
   constructor() {}
 }

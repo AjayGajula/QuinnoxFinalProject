@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster&display=swap');
+
+.card-header {
+      margin-bottom: 3%;
+  font-family: 'Courgette',
+    cursive;
+  font-size: 32px;
+
+  font-weight: 300;
+}
+
+.btn-outline-secondary{
+    border-color: none;
+    border: none;
+}

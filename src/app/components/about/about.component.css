@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster&display=swap');
+.bgcolor{
+    height: 100vh;
+    background-color: rgb(158, 150, 150);
+}
+
+.heading{
+    margin: 10%;
+    font-size: 52px;
+    color: white;
+      font-family: 'Courgette',
+      cursive;
+}
+.lead {
+  margin-top: 5%;
+  font-size: 30px;
+  line-height: 1.5;
+  font-family: 'Courgette',
+    cursive;
+  color: rgba(241, 236, 236, 0.685);
+  font-weight: 300;
+}

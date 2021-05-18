@@ -62,15 +62,7 @@ export class ApiService {
       .toPromise();
   }
   // --------------Admin Resources------------
-  authAdmin(data: any) {
-    return this.http
-      .post(
-        `${this.baseUrl}/authAdmin`,
-        data,
-        this.createHeader('application/json')
-      )
-      .toPromise();
-  }
+
   addBooking(data: any) {
     return this.http
       .post(
@@ -118,7 +110,7 @@ export class ApiService {
   public getOtp(otpData) {
     return this.http
       .post(
-        'https://cors-anywhere.herokuapp.com/https://j9186hxap5.execute-api.ap-south-1.amazonaws.com/prod/pysendsms',
+        'https://j9186hxap5.execute-api.ap-south-1.amazonaws.com/prod/pysendsms',
         otpData
       )
       .toPromise();
@@ -126,7 +118,7 @@ export class ApiService {
   //aadhar
   checkAadhar(id: String): Observable<any> {
     return this.http.get(
-      `https://cors-anywhere.herokuapp.com/https://r5pevav13l.execute-api.ap-south-1.amazonaws.com/temp/aadhar-verify?aadharNum=${id}`
+      `https://r5pevav13l.execute-api.ap-south-1.amazonaws.com/temp/aadhar-verify?aadharNum=${id}`
     );
   }
 
